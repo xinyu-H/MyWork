@@ -104,7 +104,7 @@ export default {
 
             // 门
             let _this = this;
-            let img = require('../assets/img/door_right.png')
+            let img = require('../assets/img/Door/door_right.png')
             let loader = new THREE.TextureLoader();
             loader.load(img,function(texture){
                 const geometry = new THREE.BoxGeometry(130, 220, 2);

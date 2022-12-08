@@ -168,7 +168,7 @@ export default {
         // 创建屏幕
         initScreen(){
             let _this = this;
-            let img = require('../assets/img/8.jpg')
+            let img = require('../assets/img/Cinema/2057959.jpg')
             let loader = new THREE.TextureLoader();
             loader.load(img,function(texture){
                 const geometry = new THREE.BoxGeometry(1400, 800, 2);

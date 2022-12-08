@@ -96,7 +96,7 @@ export default {
             let wallMesh = new THREE.Mesh(boxGeometry,boxMaterial);
             this.add(wallMesh);
 
-            let img = require('../assets/img/4.jpg')
+            let img = require('../assets/img/Index/4.jpg')
             let loader = new THREE.TextureLoader();
             loader.load(img,(texture) => {
                 // 模型的长、宽、高
@@ -169,7 +169,7 @@ export default {
     .wrap{
         width: 100%;
         height: 100%;
-        background: url('../assets/img/5.jpg') no-repeat;
+        background: url('../assets/img/Index/5.jpg') no-repeat;
         background-size: 100% 100%;
         .webglDom{
             width: 100%;

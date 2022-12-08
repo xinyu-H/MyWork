@@ -90,7 +90,7 @@ export default {
         },
         initDoor(){
             // 地板
-            let img = require('../assets/img/floor.jpg')
+            let img = require('../assets/img/Door/floor.jpg')
             let loader = new THREE.TextureLoader();
             loader.load(img, (texture) => {
                 this.addBox(1000, 2, 1000, '#ddd', 0, 0, 0, texture)

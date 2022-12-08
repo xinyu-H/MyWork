@@ -81,5 +81,12 @@ export default new Router({
         meta: {
             name: ''
         }
+    },{
+        path: '/Fitting',
+        name: 'Fitting',
+        component: () => import('../views/Fitting'),
+        meta: {
+            name: ''
+        }
     }]
 })

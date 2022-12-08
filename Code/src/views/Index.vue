@@ -43,6 +43,7 @@ export default {
     .content {
         width: 90%;
         max-height: 90%;
+        min-height: 50%;
         padding: 10px;
         position: absolute;
         top: 50%;left: 50%;
@@ -56,19 +57,16 @@ export default {
         align-content: flex-start;
         overflow: auto;
         backdrop-filter: blur(5px);
-        background: url('../assets/img/2057677.jpg');
+        background: url('../assets/img/Index/2057677.jpg');
         background-size: 100% 100%;
         li {
-            width: .75rem;
-            height: .75rem;
-            // background-color: bisque;
-            margin: 10px 0;
+            padding: .05rem;
+            margin: 10px 2px;
             border-radius: 5px;
             box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.7);
             background-color: rgba(0, 0, 0, 0.5);
             font-weight: 800;
             font-size: .13rem;
-            line-height: .75rem;
             color: #5279a0;
             cursor: pointer;
             transition: transform .3s;
@@ -94,9 +92,6 @@ export default {
         .content {
             width: 70%;
             li {
-                width: .45rem;
-                height: .45rem;
-                line-height: .45rem;
                 font-size: .08rem;
             }
         }
