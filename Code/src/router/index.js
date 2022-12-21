@@ -88,5 +88,12 @@ export default new Router({
         meta: {
             name: ''
         }
+    },{
+        path: '/Topic',
+        name: 'Topic',
+        component: () => import('../views/Topic'),
+        meta: {
+            name: ''
+        }
     }]
 })

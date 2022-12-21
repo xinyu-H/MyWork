@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="preview">
-            <li v-for="(v, i) in imgList" :key="i" @click="(bgImg = v.src)">
+            <li v-for="(v, i) in imgList" :key="i" :class="{'color': activeColor==i}" @click="fitting(v, i)">
                 <img :src="v.src" alt="">
             </li>
         </div>
@@ -38,10 +38,14 @@ export default {
                 src: require('@/assets/img/Fitting/swatch8-preview.png')
             }],
             bgImg: '',
+            activeColor: 0,
         }
     },
     methods: {
-        
+        fitting(val, index) {
+            this.bgImg = val.src
+            this.activeColor = index
+        }
     },
     mounted() {
         
@@ -121,6 +125,9 @@ export default {
                 width: 100%;
                 height: 100%;
             }
+        }
+        .color {
+            border: 2px solid #39f;
         }
         @media (min-width: 600px) {
             li {
