@@ -118,6 +118,7 @@ export default {
             this.topicLsit = []
             this.isAccomplish = false
             this.isSuspend = false
+            this.rightNum = 0
             if (this.value2 == 1) {
                 for (let i = 0; i < this.value3; i++) this.topicLsit.push(this.getTopic1())
             }
