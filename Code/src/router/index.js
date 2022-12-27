@@ -95,5 +95,19 @@ export default new Router({
         meta: {
             name: ''
         }
+    },{
+        path: '/FilePreview',
+        name: 'FilePreview',
+        component: () => import('../views/FilePreview'),
+        meta: {
+            name: ''
+        }
+    },{
+        path: '/WebSocket',
+        name: 'WebSocket',
+        component: () => import('../views/WebSocket'),
+        meta: {
+            name: ''
+        }
     }]
 })

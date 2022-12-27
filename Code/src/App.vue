@@ -19,4 +19,9 @@ export default {
   color: #2c3e50;
   font-size: .16rem;
 }
+@media (min-width: 900px) {
+  #app {
+    font-size: 16px;
+  }
+}
 </style>

@@ -204,6 +204,53 @@ export default {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
     },
+    // 扁平数据 转 父子结构
+    mapFun (items) {
+        const result = [];   // 存放结果集
+        const itemMap = {};  // 
+        for (const item of items) {
+            const id = item.id;
+            const pid = item.pid;
+
+            if (!itemMap[id]) {
+                itemMap[id] = {
+                    children: [],
+                }
+            }
+
+            itemMap[id] = {
+                ...item,
+                children: itemMap[id]['children']
+            }
+
+            const treeItem =  itemMap[id];
+
+            if (pid === 0) {
+                result.push(treeItem);
+            } else {
+                if (!itemMap[pid]) {
+                    itemMap[pid] = {
+                        children: [],
+                    }
+                }
+                itemMap[pid].children.push(treeItem)
+            }
+
+        }
+        return result;
+    },
+    arrFun(arr, result, pid) {
+        arr.forEach(item => {
+            if (item.pid === pid) {
+                const newItem = {...item, children: []};
+                result.push(newItem);
+                this.arrFun(arr, newItem.children, item.id);
+            }
+        })
+    },
+    arrFun2 (arr, pid) {
+        return arr.filter(item => item.pid === pid).map(item => ({...item, children: this.arrFun2(arr, item.id)}))
+    },
 }
  
  
