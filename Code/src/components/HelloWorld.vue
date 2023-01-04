@@ -132,6 +132,8 @@
                 this.drag('.div'+(i+1))
             });
             // this.$Api.Home.getData1({num: 3})
+            console.log(this.$parent)
+            console.log(this)
         }
     }
 </script>

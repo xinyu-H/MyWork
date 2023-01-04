@@ -109,5 +109,12 @@ export default new Router({
         meta: {
             name: ''
         }
+    },{
+        path: '/Test',
+        name: 'Test',
+        component: () => import('../views/test/1'),
+        meta: {
+            name: ''
+        }
     }]
 })

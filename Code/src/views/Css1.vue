@@ -1,5 +1,6 @@
 <template>
     <div class="css1">
+        <!-- <HelloWorld></HelloWorld> -->
         <div class="text">
             <p>生活不可能像你想象得那么好</p>
             <p>但也不会像你想象得那么糟</p>
@@ -12,12 +13,16 @@
 
 <script>
 import { Toast } from 'vant';
+import HelloWorld from '../components/HelloWorld'
 export default {
     name: 'Css1',
     data() {
         return {
             
         }
+    },
+    components: {
+        HelloWorld
     },
     computed: {
         
@@ -26,7 +31,7 @@ export default {
         
     },
     async mounted () {
-        
+        console.log(this.$parent)
     }
 }
 
@@ -47,20 +52,20 @@ export default {
             display: flex;
             justify-content: space-around;
             >p {
-                width: .1rem;
+                width: .6rem;
                 font-size: .22rem;
             }
             >p:nth-child(2) {
-                padding-top: .29rem;
+                padding-top: .32rem;
             }
             >p:nth-child(3) {
-                padding-top: .58rem;
+                padding-top: .64rem;
             }
             >p:nth-child(4) {
-                padding-top: .875rem;
+                padding-top: .96rem;
             }
             >p:nth-child(5) {
-                padding-top: 1.17rem;
+                padding-top: 1.26rem;
             }
         }
     }
