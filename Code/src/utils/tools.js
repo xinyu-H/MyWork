@@ -46,8 +46,6 @@ export default {
         })
         return time_str
     },
-
-
     // 添加日期范围
     addDateRange: function(params, dateRange, propName) {
         let search = params;
@@ -62,12 +60,10 @@ export default {
         }
         return search;
     },
-
     // 通用下载方法
     download: function(fileName) {
         window.location.href = baseURL + "/common/download?fileName=" + encodeURI(fileName) + "&delete=" + true;
     },
-
     // 字符串格式化(%s )
     sprintf: function(str) {
         let args = arguments, flag = true, i = 1;
@@ -81,7 +77,6 @@ export default {
         });
         return flag ? str : '';
     },
-
     // 转换字符串，undefined,null等转化为""
     praseStrEmpty: function(str) {
         if (!str || str == "undefined" || str == "null") {
@@ -89,58 +84,6 @@ export default {
         }
         return str;
     },
-
-    /**
-     * 构造树型结构数据
-     * @param {*} data 数据源
-     * @param {*} id id字段 默认 'id'
-     * @param {*} parentId 父节点字段 默认 'parentId'
-     * @param {*} children 孩子节点字段 默认 'children'
-     */
-    handleTree: function(data, id, parentId, children) {
-        let config = {
-            id: id || 'id',
-            parentId: parentId || 'parentId',
-            childrenList: children || 'children'
-        };
-
-        let childrenListMap = {};
-        let nodeIds = {};
-        let tree = [];
-
-        for (let d of data) {
-            let parentId = d[config.parentId];
-            if (childrenListMap[parentId] == null) {
-                childrenListMap[parentId] = [];
-            }
-            nodeIds[d[config.id]] = d;
-            childrenListMap[parentId].push(d);
-        }
-
-        for (let d of data) {
-            let parentId = d[config.parentId];
-            if (nodeIds[parentId] == null) {
-                tree.push(d);
-            }
-        }
-
-        for (let t of tree) {
-            adaptToChildrenList(t);
-        }
-
-        function adaptToChildrenList(o) {
-            if (childrenListMap[o[config.id]] !== null) {
-                o[config.childrenList] = childrenListMap[o[config.id]];
-            }
-            if (o[config.childrenList]) {
-                for (let c of o[config.childrenList]) {
-                    adaptToChildrenList(c);
-                }
-            }
-        }
-        return tree;
-    },
-
     /**
     * 参数处理
     * @param {*} params  参数
@@ -166,7 +109,6 @@ export default {
         }
         return result
     },
-
     // 压缩图片
     image2Base64: function(img, size = 0.7) {
         var canvas = document.createElement('canvas')
@@ -197,7 +139,6 @@ export default {
             return dataURL
         }
     },
-
     // base64解码 (中文乱码也可)
     getDecode(str){
         return decodeURIComponent(atob(str).split('').map(function (c) {
@@ -251,6 +192,30 @@ export default {
     arrFun2 (arr, pid) {
         return arr.filter(item => item.pid === pid).map(item => ({...item, children: this.arrFun2(arr, item.id)}))
     },
+    // 防抖
+    debounce(fn, delay) {
+        let timer = null;
+        return function () {
+            let _self = this, _args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                fn.apply(_self, _args)
+            }, delay)
+        }
+    },
+    // 节流
+    throttle(fn, wait){
+        let pre = Date.now();
+        return function(){
+            let context = this;
+            let args = arguments;
+            let now = Date.now();
+            if( now - pre >= wait){
+                fn.apply(context,args);
+                pre = Date.now();
+            }
+        }
+    }
 }
  
  
