@@ -116,5 +116,12 @@ export default new Router({
         meta: {
             name: ''
         }
+    },{
+        path: '/Snow',
+        name: 'Snow',
+        component: () => import('../views/Snow'),
+        meta: {
+            name: ''
+        }
     }]
 })
