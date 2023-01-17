@@ -13,7 +13,8 @@
 export default {
     data() {
         return {
-            timer: null,
+            timer1: null,
+            timer2: null,
             isColor: false,
             iconList: ['❄', '❆', '❁', '❅', '❃', '✽', '✺', '❂', '✼', '❋', '✴', '❉', '❊', '✻', '✳', '❈', '✹', '✲', '✷', '✸', '❇'],
             colorList: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'],
@@ -22,7 +23,7 @@ export default {
     methods: {
         createSnow () {
             this.$nextTick(() => {
-                setInterval(() => {
+                this.timer2 = setInterval(() => {
                     let color = this.getColor()
                     let snow = document.createElement('div')
                     snow.setAttribute('y', String(this.getRandom(0.05, 0.08)))
@@ -78,7 +79,11 @@ export default {
             v.style.left = this.getRandom(0, window.innerWidth) + 'px'
             v.style.transform = `scale(${this.getRandom(0.4, 1.4)})`
         })
-        this.timer = setInterval(this.init, 10)
+        this.timer1 = setInterval(this.init, 10)
+    },
+    destroyed () {
+        clearInterval(this.timer1)
+        clearInterval(this.timer2)
     }
 }
 </script>
