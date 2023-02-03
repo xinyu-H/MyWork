@@ -110,9 +110,16 @@ export default new Router({
             name: ''
         }
     },{
-        path: '/Test',
-        name: 'Test',
+        path: '/Test1',
+        name: 'Test1',
         component: () => import('../views/test/1'),
+        meta: {
+            name: ''
+        }
+    },{
+        path: '/Test2',
+        name: 'Test2',
+        component: () => import('../views/test/2'),
         meta: {
             name: ''
         }

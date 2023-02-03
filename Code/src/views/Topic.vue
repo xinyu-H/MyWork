@@ -471,7 +471,7 @@ export default {
                     font-size: 16px;
                 }
                 >div {
-                    margin-right: 50px;
+                    // margin-right: 50px;
                     .rightAnswers {
                         font-size: 20px;
                     }

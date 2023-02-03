@@ -5,6 +5,9 @@
             <input type="file" @change="inputChange($event)" >
         </div>
         <img v-if="uploadSrc" :src="uploadSrc" alt="" style="width:1rem;height:1rem;">
+        <div class="outer" @scroll="scrollDiv($event)">
+            <div class="inter"></div>
+        </div>
     </div>
 </template>
 
@@ -16,6 +19,10 @@
             }
         },
         methods: {
+            scrollDiv(e) {
+                console.log(e.target.scrollTop + e.target.offsetHeight)
+                // if()
+            },
             inputChange(e) {
                 let fileData = e.target.files[0]
                 this.toBase64(fileData).then(res => { 
@@ -122,6 +129,17 @@
         position: absolute;
         top: 0;left: 0;
         opacity: 0;
+    }
+}
+.outer {
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+    overflow: auto;
+    .inter {
+        width: 100%;
+        height: 500px;
+        background-color: pink;
     }
 }
 </style>
