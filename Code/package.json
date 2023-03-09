@@ -16,6 +16,8 @@
     "element-ui": "^2.15.6",
     "file-saver": "^2.0.5",
     "indexdbwrapper": "^1.0.4",
+    "luckyexcel": "^1.0.1",
+    "save-dev": "0.0.1-security",
     "three": "^0.124.0",
     "three-css2drender": "^1.0.0",
     "three-js-csg": "^72.0.0",
@@ -26,7 +28,6 @@
     "vue": "^2.5.2",
     "vue-pdf": "^4.3.0",
     "vue-router": "^3.0.1",
-    "vuex": "3.6.0",
     "xlsx": "^0.16.0"
   },
   "devDependencies": {
@@ -55,7 +56,7 @@
     "ora": "^1.2.0",
     "portfinder": "^1.0.13",
     "postcss-import": "^11.0.0",
-    "postcss-loader": "^2.0.8",
+    "postcss-loader": "^2.1.6",
     "postcss-url": "^7.2.1",
     "rimraf": "^2.6.0",
     "sass-loader": "^7.3.1",
@@ -66,6 +67,7 @@
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
+    "vuex": "^3.6.0",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",

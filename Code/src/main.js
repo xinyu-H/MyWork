@@ -11,6 +11,7 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import Api from './api/index'
 import Utils from './utils/index'
+import store from './store';
 
 Vue.prototype.$Api = Api;
 Vue.prototype.$Utils = Utils;
@@ -22,5 +23,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store
 })

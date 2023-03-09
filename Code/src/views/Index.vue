@@ -25,11 +25,25 @@ export default {
         },
         mouseoverLi(item, index) {
             this.mouseoverIndex = index;
+        },
+        async test () {
+            console.log(1)
+            await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log(2)
+                    resolve(3)
+                }, 0);
+            }).then(res => {
+                console.log(res)
+            })
+            console.log(4)
         }
     },
     mounted() {
         this.itemList = routerList.options.routes.slice(1, routerList.options.routes.length);
         this.mouseoverIndex = this.itemList.length + 1;
+
+        this.test()
     }
 }
 </script>

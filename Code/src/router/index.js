@@ -124,9 +124,23 @@ export default new Router({
             name: ''
         }
     },{
+        path: '/vuex_3',
+        name: 'vuex_3',
+        component: () => import('../views/test/vuex_3'),
+        meta: {
+            name: ''
+        }
+    },{
         path: '/Snow',
         name: 'Snow',
         component: () => import('../views/Snow'),
+        meta: {
+            name: ''
+        }
+    },{
+        path: '/Lottery',
+        name: 'Lottery',
+        component: () => import('../views/Lottery'),
         meta: {
             name: ''
         }

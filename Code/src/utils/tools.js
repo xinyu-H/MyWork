@@ -215,7 +215,15 @@ export default {
                 pre = Date.now();
             }
         }
-    }
+    },
+    // 获取随机数
+    getRandom (m, n, is) {
+        let num = +Math.abs(Math.random() * (n-m+1) + m-1).toFixed(2)
+        if (is === 2) return +(Math.random() * (n-m+1) + m-1).toFixed(2)
+        if (is === 1) return +Math.ceil(Math.random() * (n-m+1) + m-1)
+        if (num < m) return this.getRandom(m, n, is)
+        return num
+    },
 }
  
  
