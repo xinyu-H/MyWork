@@ -20,12 +20,11 @@
         },
         methods: {
             scrollDiv(e) {
-                console.log(e.target.scrollTop + e.target.offsetHeight)
-                // if()
+                console.log(e.target.scrollTop , e.target.offsetHeight)
             },
             inputChange(e) {
                 let fileData = e.target.files[0]
-                this.toBase64(fileData).then(res => { 
+                this.$Utils.Tools.toBase64(fileData).then(res => { 
                     this.uploadSrc = res
                 })
             },

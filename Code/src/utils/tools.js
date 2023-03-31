@@ -224,6 +224,16 @@ export default {
         if (num < m) return this.getRandom(m, n, is)
         return num
     },
+    // 图片文件转Base64
+    toBase64 (fileData) {
+        return new Promise((resolve, reject) => {
+            let reader = new FileReader()
+            reader.readAsDataURL(fileData)
+            reader.onload = function () {
+                resolve(this.result)
+            }
+        })
+    },
 }
  
  

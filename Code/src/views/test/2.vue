@@ -3,17 +3,32 @@
         <div class="outer">outer
             <div class="inter">inter</div>
         </div>
+        <br>
+        <button @click="addHelloWorldNum">点击HelloWorldNum++</button>
+        <HelloWorld ref="helloWorld" @fun="fun" :n="123"></HelloWorld>
     </div>
 </template>
 
 <script>
+import HelloWorld from '../../components/HelloWorld.vue'
 export default {
     data() {
         return {
 
         }
     },
+    components: {
+        HelloWorld
+    },
     methods: {
+        addHelloWorldNum () {
+            // console.log(this.$refs.helloWorld)
+            this.$refs.helloWorld.addHelloWorldNum()
+        },
+        fun (val) {
+            console.log(val)
+            val()
+        },
         /**
          * 手写instanceOf
          * @param {实例} obj 
@@ -40,7 +55,7 @@ export default {
          * @param {对象} context 
          * @param  {...any 参数列表} args
          */
-        Function.prototype.myCall = function (context, args) {
+        Function.prototype.myCall = function (context, ...args) {
             // 判空
             context = context || window
             args = args || []
@@ -59,7 +74,7 @@ export default {
         let obj = {
             name: '侯'
         }
-        fn.myCall(obj, [1, 2, 3])
+        fn.myCall(obj, 1, 2, 3)
         // 手写 myApply同上 把 ...args 去掉... 扩展即可
 
         document.querySelector('.inter').outerHTML = '<p>123</p>'

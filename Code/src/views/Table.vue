@@ -32,7 +32,7 @@ export default {
                 date: '2016-05-03',
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1516 弄'
-            }]
+            }],
         }
     },
     computed: {
@@ -41,10 +41,47 @@ export default {
     methods: {
         exportTable() {
             toExcel.getExcel('#selectTable','test')
-        }
+        },
+        /**
+         * @description 将海量数据进行分组
+         * @param { Array } arrsy 分组的数据
+         * @param { number } size  每组多少个
+         */
+        chunkArrayFun(array, size) {
+            let arr = [];
+            let index = 0;
+
+            for (let i = 0; i < array.length; i += size) {
+                let chunkArr = [];
+
+                for (let j = 0; j < size; j++) {
+                    chunkArr[j] = array[index++];
+                    if (index == array.length) break;
+                }
+                arr.push(chunkArr);
+            }
+            return arr;
+        },
     },
     async mounted () {
-        
+        let date1 = new Date().getTime()
+        let data = []
+        for (let i = 0; i < 40000; i++) {
+            data.push({
+                date: '2016-05-03',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1516 弄'
+            })
+        }
+        let arr = this.chunkArrayFun(data, 600);
+        for (let i = 0; i < arr.length; i++) {
+            setTimeout(() => {
+                this.tableData.push(...arr[i]);
+            }, 10);
+        }
+        this.$nextTick(() => {
+            console.log(new Date().getTime() - date1)
+        })
     }
 }
 

@@ -12,9 +12,11 @@ import 'vant/lib/index.css';
 import Api from './api/index'
 import Utils from './utils/index'
 import store from './store';
+import Bus from './bus/index'
 
 Vue.prototype.$Api = Api;
 Vue.prototype.$Utils = Utils;
+Vue.prototype.$Bus = Bus;
 Vue.config.productionTip = false
 Vue.use(Element)
 Vue.use(Vant);

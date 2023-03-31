@@ -43,7 +43,7 @@ export default {
         this.itemList = routerList.options.routes.slice(1, routerList.options.routes.length);
         this.mouseoverIndex = this.itemList.length + 1;
 
-        this.test()
+        // this.test()
     }
 }
 </script>

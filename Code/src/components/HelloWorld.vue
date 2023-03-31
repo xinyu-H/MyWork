@@ -1,9 +1,9 @@
 <template>
     <div class="wrap">
         <iframe :src="src" frameborder="0"></iframe>
-        <div v-for="(v,i) in divList" :key="i" :class="'div'+(i+1)" :style="{'background':v.color}">
+        <!-- <div v-for="(v,i) in divList" :key="i" :class="'div'+(i+1)" :style="{'background':v.color}">
             <span>div {{i+1}}</span>
-        </div>
+        </div> -->
         <input
             class="upload-file-img"
             type="file"
@@ -15,11 +15,24 @@
         />
         <!-- <img :src="imgBase64" alt=""> -->
         <!-- <div class="div">3</div> -->
+        <br>
+        <p>页面值HelloWorldNum++ {{ HelloWorldNum }}</p>
     </div>
 </template>
 
 <script>
     export default {
+        name: 'HelloWorld',
+        // props: {
+        //     fun: {
+        //         type: Function
+        //     },
+        //     n: {
+        //         type: Number,
+        //         default: 0
+        //     }
+        // },
+        props: ['n'],
         data(){
             return {
                 src: "https://www.baidu.com",
@@ -38,6 +51,7 @@
                 }],
                 zIndex: 1,
                 imgBase64: '',
+                HelloWorldNum: 0,
             }
         },
         watch: {
@@ -47,6 +61,14 @@
             }
         },
         methods: {
+            addHelloWorldNum() {
+                // this.HelloWorldNum++
+                this.$emit('fun', this.funn)
+                console.log(this.fun, this.n)
+            },
+            funn () {
+                this.HelloWorldNum++
+            },
             // 上传照片的格式。
             uploadImg() {
                 var  _fileName, personsFile
@@ -128,9 +150,9 @@
             }
         },
         mounted(){
-            this.divList.forEach((v,i) => {
-                this.drag('.div'+(i+1))
-            });
+            // this.divList.forEach((v,i) => {
+            //     this.drag('.div'+(i+1))
+            // });
             // this.$Api.Home.getData1({num: 3})
             console.log(this.$parent)
             console.log(this)
