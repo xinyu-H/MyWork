@@ -23,7 +23,8 @@ export default {
             let { dom, ctx } = this.clearCanvas()
             let down = (e) => {
                 this.isMouseMove = true
-                this.drawLine(e.pageX - dom.offsetLeft, e.pageY - dom.offsetTop, false, ctx)
+                this.lastX = e.pageX
+                this.lastY = e.pageY
             }
             let move = (e) => {
                 if (this.isMouseMove) {
@@ -33,19 +34,16 @@ export default {
             let up = (e) => {
                 this.isMouseMove = false
             }
-            let leave = (e) => {
-                this.isMouseMove = true
-            }
-            dom.addEventListener('mousedown', down)
-            dom.addEventListener('mousemove', move)
-            dom.addEventListener('mouseup', up)
-            dom.addEventListener('mouseleave', leave)
+            let mobileStatus = (/Mobile|Android|iPhone/i.test(navigator.userAgent))
+            dom.addEventListener(mobileStatus ? 'touchstart' : 'mousedown', down)
+            dom.addEventListener(mobileStatus ? 'touchmove' : 'mousemove', move)
+            dom.addEventListener(mobileStatus ? 'touchend' : 'mouseup', up)
         },
         drawLine (x, y, is, ctx) {
-            if (is) {
+            if (this.isMouseMove && is) {
                 ctx.beginPath()
                 ctx.lineWidth = 2
-                ctx.strokeStyle = 'red'
+                ctx.strokeStyle = 'skyblue'
                 ctx.lineCap = 'round'
                 ctx.lineJoin = 'round'
                 ctx.moveTo(this.lastX, this.lastY)
